@@ -36,7 +36,7 @@ add_definitions(${VISP_DEFINITIONS})
 link_directories(${VISP_LIBRARY_DIRS} ${Boost_LIBRARY_DIRS})
 include_directories(include ${catkin_INCLUDE_DIRS} ${VISP_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
-add_library(${PROJECT_NAME} src/mb_tracking.cpp)
+add_library(${PROJECT_NAME} src/mb_pose_estimation.cpp)
 
 add_executable(pose_estimation_service src/pose_estimation_service.cpp)
 target_link_libraries(pose_estimation_service ${PROJECT_NAME} ${catkin_LIBRARIES} ${VISP_LIBRARIES} ${Boost_LIBRARIES})

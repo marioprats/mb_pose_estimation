@@ -118,7 +118,7 @@ public:
     std::vector<tf::Transform> cMo_init(goal->object_id.size());
     for (std::size_t id = 0; id < goal->object_id.size(); ++id)
     {
-      boost::shared_ptr<MBTrack> track_i(new MBTrack(nh_, ros_grabber_->image, ros_grabber_->cparams, ros_grabber_->frame_id, vm["world-frame"].as<std::string>()));
+      boost::shared_ptr<MBPoseEstimation> track_i(new MBPoseEstimation(nh_, ros_grabber_->image, ros_grabber_->cparams, ros_grabber_->frame_id, vm["world-frame"].as<std::string>()));
 
       if (vm.count("debug"))
       {
@@ -253,7 +253,7 @@ protected:
   mb_pose_estimation::MBTrackResult result_;
 
   po::variables_map vm;
-  std::vector<boost::shared_ptr<MBTrack> > track_;
+  std::vector<boost::shared_ptr<MBPoseEstimation> > track_;
   boost::shared_ptr<ROSGrabber> ros_grabber_;
 };
 
