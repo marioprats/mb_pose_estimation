@@ -1,0 +1,10 @@
+#The object id, will be used for searching and loading the 3d models
+string object_id
+
+---
+
+#The estimated pose of the objects being tracked
+geometry_msgs/TransformStamped estimated_pose
+
+#true if a valid pose has been found
+bool is_valid

@@ -1,0 +1,29 @@
+#The object ids, will be used searching and loading the 3d models
+string[] object_id
+
+#The frame_ids of the objects to track, if being published by another node. Leave empty if does not exist.
+string[] target_frame_id
+
+#If target_frame_id is empty, the approximate object poses wrt the camera frame
+geometry_msgs/TransformStamped[] wMo
+
+#The distance in pixels between consecutive control points, one for each object to track
+uint8[] samples_distance
+
+#The distance in pixels for searching nearby edges, one for each object to track
+uint8[] search_interval
+
+#Selection of the degrees of freedom to track (1: track, 2: fixed). Needs to be of dimension 6: (x,y,z,roll,pitch,yaw)
+#Will use the same for all tracked objects
+bool[] dof
+
+#Initial minimization will try to reduce the error on all the 6 dof at the very beginning
+#independently of the values in the dof field. Will use the same for each tacked object
+bool do_initial_minimization
+
+---
+#no result
+
+---
+#The estimated poses of the objects being tracked
+geometry_msgs/Transform[] estimated_pose
