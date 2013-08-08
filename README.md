@@ -7,7 +7,8 @@ A ROS package for model-based pose estimation and tracking with localized robots
 
 First create a description of the object to track inside the data/ folder the mb_pose_estimation package, e.g. table.cao and table.init. 
 
-* table.cao. Describes the object 3D model in CAO format
+* table.cao. Describes the object 3D model in CAO format (http://www.irisa.fr/lagadic/visp/documentation/visp-2.8.0/classvpMbTracker.html#a68b9020b5f30677f0b0fd17640292ae7)
+
 ```
 V1
 4
