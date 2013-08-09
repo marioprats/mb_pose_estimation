@@ -41,15 +41,15 @@ Then place the robot looking towards the object and let it 'learn' the visual ap
 rosrun mb_pose_estimation training_node --id table --camera /head_camera/image_rect --camera-info /head_camera/camera_info --world-frame /map
 ```
 
-Click on the image on top of the vertices described in the .init file (in the same order). After this, the robot will store a set of descriptors that will help estimating the pose in the future.
+Click on the image on top of the vertices described in the .init file (in the same order), and, if the initial estimation looks good for you, click on the image with the mouse left button. After this, the robot will store a set of descriptors that will help estimating the pose in the future.
 
-Once your models have been trained, start the pose estimation service:
+Once your model has been trained, start the pose estimation service:
 
 ```
 rosrun mb_pose_estimation pose_estimation_service --camera /head_camera/image_rect --camera-info /head_camera/camera_info --debug --world-frame map
 ```
 
-Your can now request the pose of an object though a call to the /pose_estimation service. There is a client example:
+Your can now request the pose of an object from different robot locations (assuming the object appears in the image) trhough a call to the /pose_estimation service. There is a client example:
 
 ```
 rosrun mb_pose_estimation pose_estimation_client --id table
