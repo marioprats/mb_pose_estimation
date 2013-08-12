@@ -40,7 +40,6 @@
 
 #include <visp/vpHomogeneousMatrix.h>
 #include <visp/vpDisplayX.h>
-#include <visp_bridge/conversions/3dpose.h>
 
 #include <lima/CAOEdgesModel.h>
 #include <lima/Object.h>

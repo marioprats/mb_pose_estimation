@@ -35,6 +35,7 @@
 #include <sensor_msgs/CameraInfo.h>
 
 #include <mb_pose_estimation/mb_pose_estimation.h>
+#include <mb_pose_estimation/utils.h>
 #include <lima/CAOEdgesModel.h>
 #include <lima/FJoint.h>
 
@@ -43,8 +44,6 @@
 #include <visp/vpDisplayX.h>
 #include <visp/vpTime.h>
 #include <visp/vpPose.h>
-#include <visp_bridge/conversions/3dpose.h>
-#include <visp_bridge/conversions/image.h>
 
 #include <iostream>
 #include <sys/signal.h>
@@ -69,7 +68,7 @@ MBPoseEstimation::MBPoseEstimation(ros::NodeHandle &nh,
   camera_.reset(new CameraParams(vpCameraParameters(info->P[0]/binx, info->P[5]/biny, info->P[2]/binx, info->P[6]/biny)));
 
   cop_.reset(new CameraObjectPose<vpRGBa>(camera_.get(), NULL));
-  cop_->view = visp_bridge::toVispImageRGBa(*image);
+  cop_->view = toVispImageRGBa(*image);
 
   camera_frame_ = image->header.frame_id;
   init(nh);
@@ -372,7 +371,7 @@ void MBPoseEstimation::setObjectID(const std::string &object_id, const tf::Trans
 
 bool MBPoseEstimation::track(sensor_msgs::ImageConstPtr &image, tf::Transform &object_pose)
 {
-  cop_->view = visp_bridge::toVispImageRGBa(*image);
+  cop_->view = toVispImageRGBa(*image);
   bool result = track(cop_->view, object_pose);
   vpDisplay::getClick(cop_->getView());
 }

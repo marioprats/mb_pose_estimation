@@ -7,7 +7,6 @@ find_package(catkin REQUIRED COMPONENTS
   lima
   message_generation
   roscpp
-  visp_bridge
 )
 find_package(VISP REQUIRED)
 find_package(Boost REQUIRED thread program_options system filesystem)
@@ -28,7 +27,6 @@ catkin_package(
     lima
     message_runtime
     roscpp
-    visp_bridge
   DEPENDS VISP
 )
 
@@ -36,7 +34,7 @@ add_definitions(${VISP_DEFINITIONS})
 link_directories(${VISP_LIBRARY_DIRS} ${Boost_LIBRARY_DIRS})
 include_directories(include ${catkin_INCLUDE_DIRS} ${VISP_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
-add_library(${PROJECT_NAME} src/mb_pose_estimation.cpp)
+add_library(${PROJECT_NAME} src/mb_pose_estimation.cpp src/utils.cpp)
 
 add_executable(pose_estimation_service src/pose_estimation_service.cpp)
 target_link_libraries(pose_estimation_service ${PROJECT_NAME} ${catkin_LIBRARIES} ${VISP_LIBRARIES} ${Boost_LIBRARIES})
