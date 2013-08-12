@@ -563,7 +563,7 @@ bool MBPoseEstimation::minimizePoseFromDescriptors(const vpImage<vpRGBa> &image,
     vpHomogeneousMatrixToTFTransform(cop_->cMo, object_pose);
 
     error = vvs_->getError();
-    run_timeout = ! (ros::Time::now() - start < timeout);
+    run_timeout = (ros::Time::now() - start > timeout);
   } while ( ros::ok() && (debug_mode_ || (error > tolerance && run && ! run_timeout)));
 
   return (run && ! run_timeout);

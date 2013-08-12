@@ -65,7 +65,6 @@ public:
          ("camera", po::value<std::string>(), "listen to a ROS camera topic")
          ("camera-info", po::value<std::string>(), "listen to a ROS camera info topic")
          ("debug", "display a window with the tracking")
-         ("train", "just train the system for a specific object")
          ("world-frame", po::value<std::string>(), "The name of the tf frame to be used as world");
 
      po::store(po::parse_command_line(argc, argv, desc), vm);
@@ -204,14 +203,8 @@ public:
 
       for (std::size_t i = 0; i < track_.size(); ++i)
       {
-	if (vm.count("train"))
-        {
-          tracking = track_[i]->projectModel(ros_grabber_->image);
-        }
-        else
-        {
-          track_[i]->minimizePoseFromDescriptors(ros_grabber_->image, cMo[i] );
-        }
+        //track_[i]->track(ros_grabber_->image, cMo[i]);
+        track_[i]->minimizePoseFromDescriptors(ros_grabber_->image, cMo[i], ros::Duration(0.1));
         tf::transformTFToMsg(cMo[i], feedback_.estimated_pose[i]);
       }
 
