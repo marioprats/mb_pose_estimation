@@ -1,9 +1,22 @@
 mb_pose_estimation
 ==================
 
-A ROS package for model-based pose estimation and tracking with localized robots. See this video for an example:
+An experimental ROS package for model-based pose estimation and tracking with localized robots. See this video for an example:
 
 https://www.youtube.com/watch?v=32SIoHGDzTE
+
+## Installation
+
+Create a catkin workspace from the following .rosinstall file:
+
+```
+- git: {local-name: src/lima, uri: 'git@github.com:marioprats/lima.git'}
+- git: {local-name: src/mb_pose_estimation, uri: 'git@github.com:marioprats/mb_pose_estimation.git'}
+
+```
+
+You will need to install ViSP, which is available as a debian package (e.g. ros-groovy-visp). Running rosdep will install the dependencies for you.
+
 
 ## How to use
 
