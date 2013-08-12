@@ -1,7 +1,9 @@
 mb_pose_estimation
 ==================
 
-A ROS package for model-based pose estimation and tracking with localized robots.
+A ROS package for model-based pose estimation and tracking with localized robots. See this video for an example:
+
+https://www.youtube.com/watch?v=32SIoHGDzTE
 
 ## Example of use
 
