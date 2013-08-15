@@ -51,6 +51,9 @@ target_link_libraries(track_action_server ${PROJECT_NAME} ${catkin_LIBRARIES} ${
 add_executable(track_action_client src/track_action_client.cpp)
 target_link_libraries(track_action_client ${PROJECT_NAME} ${catkin_LIBRARIES} ${VISP_LIBRARIES} ${Boost_LIBRARIES})
 
+add_executable(feature_matching src/feature_matching.cpp)
+target_link_libraries(feature_matching ${PROJECT_NAME} ${catkin_LIBRARIES} ${VISP_LIBRARIES} ${Boost_LIBRARIES})
+
 install(
   TARGETS
     ${PROJECT_NAME}
@@ -58,6 +61,7 @@ install(
     pose_estimation_client
     track_action_server
     track_action_client
+    feature_matching
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

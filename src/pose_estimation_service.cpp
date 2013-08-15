@@ -172,8 +172,11 @@ public:
     response.is_valid = track_->minimizePoseFromDescriptors(ros_grabber_->image, cMo);
 
     tf::transformTFToMsg(wMc * cMo, response.estimated_pose.transform);
+    tf::transformTFToMsg(cMo, response.camera_estimated_pose.transform);
     response.estimated_pose.child_frame_id = "object_pose";
     response.estimated_pose.header.frame_id =  vm["world-frame"].as<std::string>();
+    response.camera_estimated_pose.child_frame_id = "object_pose";
+    response.camera_estimated_pose.header.frame_id =  ros_grabber_->frame_id;
 
     track_.reset();
     ros_grabber_.reset();

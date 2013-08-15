@@ -3,8 +3,11 @@ string object_id
 
 ---
 
-#The estimated pose of the objects being tracked
+#The estimated pose of the object being tracked, wrt the world frame
 geometry_msgs/TransformStamped estimated_pose
+
+#The estimated pose of the object being tracked, wrt the camera frame
+geometry_msgs/TransformStamped camera_estimated_pose
 
 #true if a valid pose has been found
 bool is_valid
