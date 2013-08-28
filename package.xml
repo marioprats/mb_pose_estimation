@@ -3,7 +3,7 @@
   <name>mb_pose_estimation</name>
   <version>0.0.1</version>
   <description>Model-based pose estimation and tracking for localized robots</description>
-  <maintainer email="mprats@willowgarage.com">Mario Prats</maintainer>
+  <maintainer email="marioprats@gmail.com">Mario Prats</maintainer>
 
   <license>BSD</license>
 
